@@ -1,17 +1,16 @@
-/* =========================================================
-   VARIABLES Y CONFIGURACIÓN ACCESIBLE
-   ========================================================= */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+
 :root {
-  --bg-crema: #fffcf3;
-  --texto-oscuro: #1e2124;      /* Casi negro, suave a la vista */
-  --texto-secundario: #4b5259;
-  --borde-suave: #d8d3c5;
-  --relleno-esponja: #f4efe1;
-  --acento-puerto: #244c66;
-  
-  --font-principal: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --gap-columnas: 1.5rem;
-  --margen-lateral: 4vw;
+  --bg: #fffcf3;
+  --texto: #1e2124;
+  --texto-sec: #4b5259;
+  --borde: #d8d3c5;
+  --superficie: #f4efe1;
+  --acento: #244c66;
+  --amarillo: #f6c945;
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --gap: 1.5rem;
+  --margen: 4vw;
 }
 
 * {
@@ -26,29 +25,24 @@ html {
 }
 
 body {
-  background-color: var(--bg-crema);
-  color: var(--texto-oscuro);
-  font-family: var(--font-principal);
+  background-color: var(--bg);
+  color: var(--texto);
+  font-family: var(--font);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
 
-/* =========================================================
-   SISTEMA DE GRILLA DE 4 COLUMNAS VERTICALES
-   ========================================================= */
+/*GRILLA*/
 .grid-4 {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  column-gap: var(--gap-columnas);
+  column-gap: var(--gap);
   width: 100%;
-  padding-left: var(--margen-lateral);
-  padding-right: var(--margen-lateral);
+  padding-inline: var(--margen);
 }
 
-/* =========================================================
-   1. MOMENTO HOME
-   ========================================================= */
-.momento-home {
+/*HOME*/
+.home {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -56,17 +50,13 @@ body {
   padding-bottom: 3rem;
 }
 
-/* Cabecera: 1/4 Home | 2/4 vacío | 3/4 y 4/4 Enlaces */
 .cabecera {
-  padding-top: 1.75rem;
-  padding-bottom: 1.75rem;
-  border-bottom: 1px solid var(--borde-suave);
+  padding-block: 1.75rem;
+  border-bottom: 1px solid var(--borde);
   align-items: center;
 }
 
-.col-1 {
-  grid-column: 1 / 2;
-}
+.col-1 { grid-column: 1 / 2; }
 
 .col-3-4 {
   grid-column: 3 / 5;
@@ -79,35 +69,33 @@ body {
 .btn-nav {
   display: inline-block;
   text-decoration: none;
-  color: var(--texto-oscuro);
+  color: var(--texto);
   font-weight: 600;
   font-size: 0.95rem;
   padding: 0.5rem 1.1rem;
-  border: 1.5px solid var(--texto-oscuro);
+  border: 1.5px solid var(--texto);
   border-radius: 999px;
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .btn-nav:hover,
 .btn-nav:focus-visible {
-  background-color: var(--texto-oscuro);
-  color: var(--bg-crema);
+  background-color: var(--texto);
+  color: var(--bg);
 }
 
-/* Titular monumental ocupando la mayor parte de la pantalla */
-.hero-body {
+.hero {
   flex: 1;
   align-items: center;
   padding-top: 2rem;
 }
 
-.titulo-monumental {
+.titulo-principal {
   grid-column: 1 / 5;
   font-weight: 800;
   font-size: clamp(2.8rem, 7.2vw, 6.8rem);
   line-height: 1.04;
   letter-spacing: -0.03em;
-  color: var(--texto-oscuro);
 }
 
 .hero-cta {
@@ -118,59 +106,49 @@ body {
 
 .btn-bajar {
   text-decoration: none;
-  color: var(--texto-oscuro);
+  color: var(--texto);
   font-weight: 600;
   padding: 0.6rem 1.2rem;
-  border: 1.5px solid var(--borde-suave);
+  border: 1.5px solid var(--borde);
   border-radius: 999px;
-  background-color: var(--relleno-esponja);
+  background-color: var(--superficie);
 }
 
-/* =========================================================
-   2. MOMENTO PARALLAX (Recuadro y Palabras Esponjosas)
-   ========================================================= */
-.momento-parallax {
-  padding: 4rem 0;
-}
+/*PARALLAX*/
+.parallax { padding-block: 4rem; }
 
 .parallax-box {
   grid-column: 1 / 5;
   position: relative;
   height: 75vh;
   min-height: 480px;
-  border: 1.5px solid var(--texto-oscuro);
+  border: 1.5px solid var(--texto);
   border-radius: 20px;
-  background-color: var(--relleno-esponja);
+  background-color: var(--superficie);
   overflow: hidden;
   user-select: none;
 }
 
-/* Contorno "esponjoso" de cada palabra flotante */
 .palabra-esponjosa {
   position: absolute;
   top: 0;
   left: 0;
   padding: 1rem 1.85rem;
-  background-color: var(--bg-crema);
-  color: var(--texto-oscuro);
+  background-color: var(--bg);
+  color: var(--texto);
   font-weight: 600;
   font-size: clamp(1.1rem, 2vw, 1.65rem);
   border-radius: 999px;
-  /* Doble halo suave que genera la sensación acolchada/esponjosa */
   border: 2px solid rgba(30, 33, 36, 0.25);
-  box-shadow: 
-    0 0 0 8px rgba(255, 252, 243, 0.65),
-    0 8px 20px rgba(30, 33, 36, 0.08);
+  box-shadow: 0 0 0 8px rgba(255, 252, 243, 0.65), 0 8px 20px rgba(30, 33, 36, 0.08);
   will-change: transform;
   white-space: nowrap;
 }
 
-/* =========================================================
-   3. MOMENTO PARTES DE LA INVESTIGACIÓN
-   ========================================================= */
-.momento-investigacion {
-  padding: 5rem 0;
-  border-top: 1px solid var(--borde-suave);
+/*INVESTIGACION*/
+.investigacion {
+  padding-block: 5rem;
+  border-top: 1px solid var(--borde);
 }
 
 .titulo-seccion {
@@ -178,80 +156,197 @@ body {
   font-size: clamp(2rem, 4vw, 3.2rem);
   font-weight: 800;
   letter-spacing: -0.02em;
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
 }
 
-/* Distribución en 2 grandes columnas usando la grilla base de 4 */
-.bloque-dos-cols.col-izq {
-  grid-column: 1 / 3;
-}
+.col-izq { grid-column: 1 / 3; }
+.col-der { grid-column: 3 / 5; }
 
-.bloque-dos-cols.col-der {
-  grid-column: 3 / 5;
-}
-
-.bloque-dos-cols h3 {
+.col-bloque h3 {
   font-size: 1.35rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  color: var(--acento-puerto);
+  color: var(--acento);
 }
 
-.bloque-dos-cols p {
+.col-bloque p {
   font-size: 1.05rem;
-  color: var(--texto-oscuro);
   margin-bottom: 2rem;
   max-width: 58ch;
 }
 
-/* Recuadros inferiores del wireframe */
 .recuadro-visual {
   width: 100%;
   height: 240px;
-  border: 1.5px solid var(--texto-oscuro);
+  border: 1.5px solid var(--texto);
   border-radius: 16px;
-  background-color: var(--relleno-esponja);
+  background-color: var(--superficie);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--texto-secundario);
+  color: var(--texto-sec);
   font-size: 0.9rem;
 }
 
-/* =========================================================
-   4. MOMENTO MODELO VISUAL
-   ========================================================= */
-.momento-modelo {
+/*MODELO*/
+.modelo-visual {
   padding: 5rem 0 7rem;
-  border-top: 1px solid var(--borde-suave);
+  border-top: 1px solid var(--borde);
 }
 
-.contenedor-modelo {
+.modelo-wrapper {
   grid-column: 1 / 5;
-  min-height: 60vh;
-  border: 1.5px dashed var(--texto-secundario);
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 1.5rem;
+  min-height: 640px;
+}
+
+.modelo-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.panel-controles {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.btn-mini {
+  align-self: flex-start;
+  background: transparent;
+  border: 1.5px solid var(--texto);
+  color: var(--texto);
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.btn-mini:hover {
+  background: var(--texto);
+  color: var(--bg);
+}
+
+.hint {
+  font-size: 0.8rem;
+  color: var(--texto-sec);
+}
+
+.lista-capas {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.item-capa {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.65rem 0.85rem;
+  background-color: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: grab;
+  user-select: none;
+}
+
+.item-capa:active { cursor: grabbing; }
+
+.item-capa.oculta { opacity: 0.45; }
+
+.capa-acciones {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.capa-acciones button {
+  background: var(--bg);
+  border: 1px solid var(--borde);
+  border-radius: 5px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  font-size: 0.75rem;
+  color: var(--texto);
+}
+
+.visor-3d {
+  position: relative;
+  background-color: #ffffff;
+  border: 1.5px solid var(--texto);
   border-radius: 20px;
+  overflow: hidden;
+  perspective: 1400px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--texto-secundario);
+  cursor: grab;
+  touch-action: none;
 }
 
-/* =========================================================
-   RESPONSIVIDAD (Tablets y Móviles)
-   ========================================================= */
-@media (max-width: 850px) {
-  .col-1 {
-    grid-column: 1 / 3;
-  }
+.visor-3d:active { cursor: grabbing; }
+
+.pila-3d {
+  position: relative;
+  width: 680px;
+  height: 220px;
+  transform-style: preserve-3d;
+  transition: transform 0.08s ease-out;
+}
+
+.capa-3d {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.25s ease;
+  pointer-events: none;
+}
+
+.capa-3d.oculta { opacity: 0 !important; }
+
+.capa-3d svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.nodo-persona {
+  transition: transform 0.15s ease-out;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+/*RESPONSIVE*/
+@media (max-width: 900px) {
+  .col-1 { grid-column: 1 / 3; }
   .col-3-4 {
     grid-column: 1 / 5;
     justify-content: flex-start;
     margin-top: 1rem;
   }
-  .bloque-dos-cols.col-izq,
-  .bloque-dos-cols.col-der {
+  .col-izq,
+  .col-der {
     grid-column: 1 / 5;
     margin-bottom: 2.5rem;
+  }
+  .modelo-wrapper {
+    grid-template-columns: 1fr;
+  }
+  .visor-3d {
+    min-height: 440px;
+  }
+  .pila-3d {
+    width: 92%;
+    height: auto;
+    aspect-ratio: 680 / 220;
   }
 }

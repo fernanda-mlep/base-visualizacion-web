@@ -3,64 +3,49 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nombre del proyecto</title>
+  <title>¿Cómo transitan el Barrio Puerto las personas mayores?</title>
   <link rel="stylesheet" href="css/style.css">
   <script src="js/script.js" defer></script>
 </head>
-portada, espacio para la visualización y fuentes.
 
 <body>
-<body>
 
-  <!-- =========================================================
-       1. MOMENTO HOME (Cabecera + Titular Monumental)
-       ========================================================= -->
-  <section id="home" class="momento-home">
-    <!-- Cabecera en grilla de 4 columnas -->
+  <!--HOME-->
+  <section id="home" class="home">
     <header class="grid-4 cabecera">
       <div class="col-1">
-        <a href="#home" class="btn-nav btn-home">Home</a>
+        <a href="#home" class="btn-nav">Home</a>
       </div>
-      <!-- Columna 2 vacía según wireframe -->
-      <nav class="col-3-4 nav-indice" aria-label="Índice de secciones">
+      <nav class="col-3-4 nav-indice" aria-label="Índice">
         <a href="#contexto" class="btn-nav">Contexto</a>
         <a href="#investigacion" class="btn-nav">Investigación</a>
         <a href="#resultados" class="btn-nav">Resultados</a>
       </nav>
     </header>
 
-    <!-- Cuerpo de Home: Titular ocupando la mayor parte de la pantalla -->
-    <div class="grid-4 hero-body">
-      <h1 class="titulo-monumental">
+    <div class="grid-4 hero">
+      <h1 class="titulo-principal">
         ¿Cómo transitan el Barrio Puerto las personas mayores?
       </h1>
       <div class="hero-cta">
-        <a href="#parallax" class="btn-bajar" aria-label="Bajar a sección interactiva">Explorar ↓</a>
+        <a href="#parallax" class="btn-bajar" aria-label="Bajar">Explorar ↓</a>
       </div>
     </div>
   </section>
 
-  <!-- =========================================================
-       2. MOMENTO PARALLAX (Palabras flotantes con física)
-       ========================================================= -->
-  <section id="parallax" class="momento-parallax">
+  <!--PARALLAX-->
+  <section id="parallax" class="parallax">
     <div class="grid-4">
-      <div class="parallax-box" id="escenario-parallax">
-        <!-- Las palabras se generan y animan dinámicamente desde script.js -->
-      </div>
+      <div class="parallax-box" id="escenario-parallax"></div>
     </div>
   </section>
 
-  <!-- =========================================================
-       3. MOMENTO PARTES DE LA INVESTIGACIÓN
-       ========================================================= -->
-  <section id="investigacion" class="momento-investigacion">
+  <!--INVESTIGACION-->
+  <section id="investigacion" class="investigacion">
     <div class="grid-4">
-      <!-- Título abarca las 4 columnas (ancho total) -->
       <h2 class="titulo-seccion">Partes de la investigación</h2>
 
-      <!-- Textos y bloques distribuidos en 2 grandes columnas (2 cols + 2 cols) -->
-      <article id="contexto" class="bloque-dos-cols col-izq">
+      <article id="contexto" class="col-bloque col-izq">
         <h3>01. Contexto Territorial</h3>
         <p>
           El Barrio Puerto presenta una topografía y trama urbana patrimonial que condiciona el desplazamiento cotidiano. Analizamos cómo las pendientes, veredas y puntos de descanso configuran la experiencia de caminar para quienes habitan el sector hace décadas.
@@ -70,7 +55,7 @@ portada, espacio para la visualización y fuentes.
         </div>
       </article>
 
-      <article id="resultados" class="bloque-dos-cols col-der">
+      <article id="resultados" class="col-bloque col-der">
         <h3>02. Hallazgos y Resultados</h3>
         <p>
           El tránsito no es solo un traslado físico de un punto A a un punto B, sino una red de vínculos comunitarios. Los comercios de barrio, las plazas y los saludos cotidianos sostienen el sentido de seguridad y pertenencia.
@@ -82,19 +67,27 @@ portada, espacio para la visualización y fuentes.
     </div>
   </section>
 
-  <!-- =========================================================
-       4. MOMENTO MODELO VISUAL (Base lista para tu visualización)
-       ========================================================= -->
-  <section id="modelo-visual" class="momento-modelo">
+  <!--MODELO-->
+  <section id="modelo-visual" class="modelo-visual">
     <div class="grid-4">
       <h2 class="titulo-seccion">Modelo Visual</h2>
-      <div class="contenedor-modelo">
-        <!-- Aquí montarás tu visualización gráfica / canvas / SVG -->
-        <p>Área destinada al modelo visual interactivo de flujos y relatos.</p>
+
+      <div class="modelo-wrapper">
+        <aside class="modelo-panel">
+          <div class="panel-controles">
+            <button type="button" id="btn-reset" class="btn-mini">Centrar vista</button>
+            <span class="hint">Arrastra: rotar 360° · Rueda: zoom</span>
+          </div>
+          <ul id="lista-capas" class="lista-capas"></ul>
+        </aside>
+
+        <div id="visor-3d" class="visor-3d">
+          <div id="pila-3d" class="pila-3d"></div>
+        </div>
       </div>
     </div>
   </section>
 
   <script src="script.js"></script>
-</body>        
+</body>
 </html>
